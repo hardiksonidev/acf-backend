@@ -1,16 +1,12 @@
 {
-  "name": "my-v0-project",
+  "name": "acf-backend",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "next build",
     "dev": "next dev",
-    "lint": "next lint",
+    "build": "next build",
     "start": "next start"
   },
-  {
-  "type": "module"
-},
   "dependencies": {
     "@aws-sdk/credential-providers": "latest",
     "@emotion/is-prop-valid": "latest",
@@ -61,13 +57,13 @@
     "mongodb": "latest",
     "mongodb-client-encryption": "latest",
     "mysql2": "latest",
-    "next": "14.2.16",
+    "next": "^14.2.16",
     "next-themes": "latest",
     "nodemailer": "latest",
     "razorpay": "latest",
-    "react": "^18",
+    "react": "^18.3.1",
     "react-day-picker": "8.10.1",
-    "react-dom": "^18",
+    "react-dom": "^18.3.1",
     "react-hook-form": "^7.54.1",
     "react-resizable-panels": "^2.1.7",
     "recharts": "2.15.0",
