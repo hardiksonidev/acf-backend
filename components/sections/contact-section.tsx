@@ -30,7 +30,7 @@ export default function ContactSection() {
     setIsSubmitting(true)
 
     try {
-      const response = await fetch("/api/contact", {
+        const response = await fetch("https://simple-email-form.vercel.app/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
