@@ -471,11 +471,11 @@ export default function FreelancerPage() {
             className="mb-10"
           >
             <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-              <TabsList className="grid w-full grid-cols-5 mb-12">
+              <TabsList className="grid w-full grid-cols-4 mb-12">
                 <TabsTrigger value="overview">Overview</TabsTrigger>
                 <TabsTrigger value="services">Services</TabsTrigger>
                 <TabsTrigger value="skills">Skills</TabsTrigger>
-                <TabsTrigger value="portfolio">Portfolio</TabsTrigger>
+                 {/*  <TabsTrigger value="portfolio">Portfolio</TabsTrigger>*/}
                 <TabsTrigger value="certifications">Certifications</TabsTrigger>
               </TabsList>
 
@@ -713,7 +713,7 @@ export default function FreelancerPage() {
                 ))}
               </TabsContent>
 
-              <TabsContent value="portfolio" className="space-y-8">
+              {/* <TabsContent value="portfolio" className="space-y-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {portfolioProjects.map((project, index) => (
                     <motion.div
@@ -745,7 +745,7 @@ export default function FreelancerPage() {
                     </motion.div>
                   ))}
                 </div>
-              </TabsContent>
+              </TabsContent> */}
 
               <TabsContent value="certifications" className="space-y-8">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
