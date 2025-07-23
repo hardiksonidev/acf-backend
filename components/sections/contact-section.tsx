@@ -20,17 +20,21 @@ export default function ContactSection() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const { toast } = useToast()
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | React.TextareaHTMLAttributes<HTMLTextAreaElement>>) => {
-    const { id, value } = e.target as HTMLInputElement | HTMLTextAreaElement // Type assertion
-    setFormData((prev) => ({ ...prev, [id]: value }))
-  }
+  // const handleChange = (e: React.ChangeEvent<HTMLInputElement | React.TextareaHTMLAttributes<HTMLTextAreaElement>>) => {
+  //   const { id, value } = e.target as HTMLInputElement | HTMLTextAreaElement // Type assertion
+  //   setFormData((prev) => ({ ...prev, [id]: value }))
+  // }
 
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const { id, value } = e.target
+  setFormData((prev) => ({ ...prev, [id]: value }))
+}
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
 
     try {
-        const response = await fetch("https://simple-email-form.vercel.app/api/contact", {
+      const response = await fetch("https://simple-email-form.vercel.app/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
