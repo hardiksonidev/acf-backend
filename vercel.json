@@ -1,9 +1,16 @@
 {
-  "version": 2,
   "functions": {
-    "api/**/*.js": {
-      "memory": 128,
-      "maxDuration": 10
+    "app/api/**/*.ts": {
+      "maxDuration": 30
     }
+  },
+  "env": {
+    "MONGODB_URI": "@mongodb_uri",
+    "JWT_SECRET": "@jwt_secret",
+    "EMAIL_USER": "@email_user",
+    "EMAIL_PASS": "@email_pass",
+    "EMAIL_FROM": "@email_from",
+    "RAZORPAY_KEY_ID": "@razorpay_key_id",
+    "RAZORPAY_KEY_SECRET": "@razorpay_key_secret"
   }
 }

@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://me.hardiksoni.dev/
+
+# Sitemaps
+Sitemap: https://me.hardiksoni.dev/sitemap.xml
