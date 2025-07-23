@@ -471,7 +471,7 @@ export default function FreelancerPage() {
             className="mb-10"
           >
             <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-              <TabsList className="grid w-full grid-cols-4 mb-12">
+              <TabsList className="grid w-full grid-cols-4 mb-12 ">
                 <TabsTrigger value="overview">Overview</TabsTrigger>
                 <TabsTrigger value="services">Services</TabsTrigger>
                 <TabsTrigger value="skills">Skills</TabsTrigger>
