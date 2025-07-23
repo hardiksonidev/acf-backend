@@ -8,6 +8,9 @@
     "lint": "next lint",
     "start": "next start"
   },
+  {
+  "type": "module"
+},
   "dependencies": {
     "@aws-sdk/credential-providers": "latest",
     "@emotion/is-prop-valid": "latest",
