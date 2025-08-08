@@ -69,13 +69,13 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-    // Google Analytics Measurement ID from environment variables
-  // const "G-7VHTQ7SMGN" = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-7VHTQ7SMGN";
-
   return (
     <html lang="en" suppressHydrationWarning>
             
             <head>
+              <title>Hardik S. – ACF Developer</title>
+                      <meta name="description" content="Build scalable solutions with ACF, WordPress, React, and .NET" />
+        <link rel="canonical" href="https://acf.hardiksoni.dev" />
                     <Script async src={`https://www.googletagmanager.com/gtag/js?id=${"G-7VHTQ7SMGN"}`} />
           <Script
             dangerouslySetInnerHTML={{
@@ -106,6 +106,17 @@ export default function RootLayout({
             `,
           }}
         />
+          <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Hardik Soni",
+    "url": "https://acf.hardiksoni.dev",
+    "jobTitle": "Full Stack Developer",
+    "sameAs": [
+      "https://github.com/hardiksonidev",
+      "https://x.com/hardiksonidev"
+    ]
+  }) }} />
       <Script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{
   __html: JSON.stringify({
     "@context": "https://schema.org",
@@ -116,6 +127,7 @@ export default function RootLayout({
     sameAs: ["https://github.com/hardiksonidev/"]
   })
 }} />
+<meta name="google-site-verification" content="tZXSveQDnbcMJBBVBMLJJDwP0wgCBFWcJ-frYIEFits" />
 </head>
       <body className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
