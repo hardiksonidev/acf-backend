@@ -1,0 +1,17 @@
+{
+  "name": "Hardik Soni",
+  "title": "Full Stack Developer & ACF Expert",
+  "website": "https://acf.hardiksoni.dev",
+  "email": "hardiksonidev@gmail.com",
+  "location": "India",
+  "skills": [
+    "ACF" ,"WordPress", "Advanced Custom Fields", "React", "Next.js", "ASP.NET Core", "Node.js", "Elementor", "Angular", "SEO", "MySQL"
+  ],
+  "certifications": [
+    "Microsoft Certified"
+  ],
+  "social": {
+    "twitter": "https://x.com/hardiksonidev",
+    "github": "https://github.com/hardiksonidev"
+  }
+}

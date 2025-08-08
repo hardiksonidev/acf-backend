@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://me.hardiksoni.dev/
+Host: https://acf.hardiksoni.dev/
 
 # Sitemaps
-Sitemap: https://me.hardiksoni.dev/sitemap.xml
+Sitemap: https://acf.hardiksoni.dev/sitemap.xml

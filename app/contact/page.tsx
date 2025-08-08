@@ -11,6 +11,8 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import { useToast } from "@/hooks/use-toast"
+import FilloutPopup from "@/components/fillout-popup"
+import FilloutPopupContact from "@/components/FilloutEmbed"
 
 const contactInfo = [
   {
@@ -48,54 +50,92 @@ export default function ContactPage() {
     subject: "",
     message: "",
   })
-  
+
+
   const [isSubmitting, setIsSubmitting] = useState(false)
    const { toast } = useToast()
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
 
-    try {
-      const response = await fetch("/api/contact/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      })
+     const handleSubmit = async (e: React.FormEvent) => {
+       e.preventDefault()
+       setIsSubmitting(true)
+   
+       try {
+         const response = await fetch("simple-email-form-git-branch-name-hardiksonidev-projects.vercel.app/api/contact", {
+           method: "POST",
+           headers: {
+             "Content-Type": "application/json",
+           },
+           body: JSON.stringify(formData),
+         })
+   
+         if (response.ok) {
+           toast({
+             title: "Message Sent!",
+             description: "Thank you for your message. I will get back to you soon.",
+           })
+           setFormData({ name: "", email: "", subject: "", message: "" })
+         } else {
+           const errorData = await response.json()
+           toast({
+             title: "Error",
+             description: errorData.message || "Failed to send message. Please try again.",
+             variant: "destructive",
+           })
+         }
+       } catch (error) {
+         console.error("Form submission error:", error)
+         toast({
+           title: "Error",
+           description: "An unexpected error occurred. Please try again later.",
+           variant: "destructive",
+         })
+       } finally {
+         setIsSubmitting(false)
+       }
+     }
+  // const handleSubmit = async (e: React.FormEvent) => {
+  //   e.preventDefault()
+  //   setIsSubmitting(true)
 
-      if (response.ok) {
-        toast({
-          title: "Message Sent!",
-          description: "Thank you for your message. I will get back to you soon.",
-        })
-        setFormData({ name: "", email: "", subject: "", message: "" })
-      } else {
-        const errorData = await response.json()
-        toast({
-          title: "Error",
-          description: errorData.message || "Failed to send message. Please try again.",
-          variant: "destructive",
-        })
-      }
-    } catch (error) {
-      console.error("Form submission error:", error)
-      toast({
-        title: "Error",
-        description: "An unexpected error occurred. Please try again later.",
-        variant: "destructive",
-      })
-    } finally {
-      setIsSubmitting(false)
-    }
-  }
+  //   try {
+  //     const response = await fetch("/api/contact/", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify(formData),
+  //     })
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }))
-  }
+  //     if (response.ok) {
+  //       toast({
+  //         title: "Message Sent!",
+  //         description: "Thank you for your message. I will get back to you soon.",
+  //       })
+  //       setFormData({ name: "", email: "", subject: "", message: "" })
+  //     } else {
+  //       const errorData = await response.json()
+  //       toast({
+  //         title: "Error",
+  //         description: errorData.message || "Failed to send message. Please try again.",
+  //         variant: "destructive",
+  //       })
+  //     }
+  //   } catch (error) {
+  //     console.error("Form submission error:", error)
+  //     toast({
+  //       title: "Error",
+  //       description: "An unexpected error occurred. Please try again later.",
+  //       variant: "destructive",
+  //     })
+  //   } finally {
+  //     setIsSubmitting(false)
+  //   }
+  // }
+
+const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const { id, value } = e.target
+  setFormData((prev) => ({ ...prev, [id]: value }))
+}
 
   return (
     <div className="min-h-screen pt-20">
@@ -194,6 +234,7 @@ export default function ContactPage() {
               <div>
                 <h2 className="text-2xl font-semibold mb-6">Contact Information</h2>
                 <div className="space-y-4">
+                  <FilloutPopupContact />
                   {contactInfo.map((info) => {
                     const Icon = info.icon
                     return (

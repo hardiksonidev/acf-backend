@@ -1,7 +1,7 @@
 import Head from 'next/head'
 
 export default function SEO() {
-  const site = 'https://me.hardiksoni.dev/'
+  const site = 'https://acf.hardiksoni.dev/'
   const title = 'Hardik Soni — ACF Expert - Full‑Stack Developer'
   const desc = 'Portfolio of Hardik Soni: Wordpress Next.js, React, etc.'
   const preview = `${site}/preview.png`

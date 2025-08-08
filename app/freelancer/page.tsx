@@ -1,6 +1,6 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 import { useState } from "react"
 import {
   Calendar,
@@ -298,51 +298,51 @@ const testimonials = [
     "In this project client needed some difficult conditional changes based on the Advanced Custom Fields and within my expertise I completed that in a few hours. Client is very happy with it.",
 },
 // {
-  //   name: "Sarah Johnson",
-  //   role: "CTO, FinTech Solutions",
-  //   company: "TechCorp",
-  //   country: "",
-  //   image: "/placeholder.svg?height=60&width=60",
-  //   content:
-  //     "Hardik delivered an exceptional vendor management system that exceeded our expectations. His expertise in .NET and Angular, combined with his understanding of FinTech requirements, made him the perfect choice for our project.",
-  //   rating: 5,
-  //   myResponse: "",
-  // },
-  // {
-  //   name: "Michael Chen",
-  //   role: "Product Manager",
-  //   company: "Healthcare Innovations",
-  //   country: "",
-  //   image: "/placeholder.svg?height=60&width=60",
-  //   content:
-  //     "Working with Hardik was a game-changer for our healthcare platform. His attention to detail and ability to integrate complex systems seamlessly helped us launch on time and within budget.",
-  //   rating: 5,
-  //   myResponse: "",
-  // },
-  // {
-  //   name: "Emily Rodriguez",
-  //   role: "Lead Developer",
-  //   company: "Enterprise Solutions",
-  //   country: "",
-  //   image: "/placeholder.svg?height=60&width=60",
-  //   content:
-  //     "Hardik's cloud migration expertise helped us move our legacy systems to Azure efficiently. His technical guidance and hands-on approach made the transition smooth and successful.",
-  //   rating: 5,
-  //   myResponse: "",
-  //   flag:"",
-  // },
-  // {
-  //   name: "David Thompson",
-  //   role: "Startup Founder",
-  //   company: "InnovateNow",
-  //   country: "",
-  //   image: "/placeholder.svg?height=60&width=60",
-  //   content:
-  //     "As a startup, we needed someone who could deliver quickly without compromising quality. Hardik built our MVP in record time and provided valuable technical insights that shaped our product strategy.",
-  //   rating: 5,
-  //   myResponse: "",
-  //   flag:"",
-  // },
+//   name: "Sarah Johnson",
+//   role: "CTO, FinTech Solutions",
+//   company: "TechCorp",
+//   country: "",
+//   image: "/placeholder.svg?height=60&width=60",
+//   content:
+//     "Hardik delivered an exceptional vendor management system that exceeded our expectations. His expertise in .NET and Angular, combined with his understanding of FinTech requirements, made him the perfect choice for our project.",
+//   rating: 5,
+//   myResponse: "",
+// },
+// {
+//   name: "Michael Chen",
+//   role: "Product Manager",
+//   company: "Healthcare Innovations",
+//   country: "",
+//   image: "/placeholder.svg?height=60&width=60",
+//   content:
+//     "Working with Hardik was a game-changer for our healthcare platform. His attention to detail and ability to integrate complex systems seamlessly helped us launch on time and within budget.",
+//   rating: 5,
+//   myResponse: "",
+// },
+// {
+//   name: "Emily Rodriguez",
+//   role: "Lead Developer",
+//   company: "Enterprise Solutions",
+//   country: "",
+//   image: "/placeholder.svg?height=60&width=60",
+//   content:
+//     "Hardik's cloud migration expertise helped us move our legacy systems to Azure efficiently. His technical guidance and hands-on approach made the transition smooth and successful.",
+//   rating: 5,
+//   myResponse: "",
+//   flag:"",
+// },
+// {
+//   name: "David Thompson",
+//   role: "Startup Founder",
+//   company: "InnovateNow",
+//   country: "",
+//   image: "/placeholder.svg?height=60&width=60",
+//   content:
+//     "As a startup, we needed someone who could deliver quickly without compromising quality. Hardik built our MVP in record time and provided valuable technical insights that shaped our product strategy.",
+//   rating: 5,
+//   myResponse: "",
+//   flag:"",
+// },
 ]
 export default function FreelancerPage() {
   const [activeTab, setActiveTab] = useState("overview")
@@ -473,7 +473,7 @@ export default function FreelancerPage() {
             <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
               <TabsList className="grid w-full grid-cols-4 mb-12 ">
                 <TabsTrigger value="overview">Overview</TabsTrigger>
-                <TabsTrigger value="services">Services</TabsTrigger>
+                <TabsTrigger value="solutions">Solutions</TabsTrigger>
                 <TabsTrigger value="skills">Skills</TabsTrigger>
                  {/*  <TabsTrigger value="portfolio">Portfolio</TabsTrigger>*/}
                 <TabsTrigger value="certifications">Certifications</TabsTrigger>
@@ -651,7 +651,7 @@ export default function FreelancerPage() {
                 </Card>
               </TabsContent>
 
-              <TabsContent value="services" className="space-y-8">
+              <TabsContent value="solutions" className="space-y-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {services.map((service, index) => {
                     const Icon = service.icon
@@ -819,67 +819,62 @@ export default function FreelancerPage() {
 
             <Card className="glass-effect border-0">
   <CardContent className="p-8">
-    <div className="text-center mb-8">
-      <img
-        src={testimonials[activeTestimonial].image || "/placeholder.svg"}
-        alt={testimonials[activeTestimonial].name}
-        className="w-16 h-16 rounded-full mx-auto mb-4"
-      />
-      <div className="flex justify-center mb-4">
-        {[...Array(testimonials[activeTestimonial].rating)].map((_, i) => (
-          <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
-        ))}
-      </div>
-      <blockquote className="text-lg text-gray-600 dark:text-gray-400 mb-6 max-w-5xl mx-auto">
-        "{testimonials[activeTestimonial].content}"
-      </blockquote>
-      <div>
-        <div className="font-semibold">{testimonials[activeTestimonial].name}</div>
-        <div className="text-sm text-gray-600 dark:text-gray-400">
-          {testimonials[activeTestimonial].role}
-          {testimonials[activeTestimonial].role && testimonials[activeTestimonial].company ? " at " : ""}
-          {testimonials[activeTestimonial].company}
-        </div>
-        {/* {testimonials[activeTestimonial].country && (
-          <div className="text-xs text-gray-500 dark:text-gray-400 mt-1">
-            {testimonials[activeTestimonial].country}
+    <div className="flex justify-center items-center">
+      <AnimatePresence initial={false} mode="wait">
+        <motion.div
+          key={activeTestimonial}
+          initial={{ opacity: 0, x: 100 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: -100 }}
+          transition={{ duration: 0.5 }}
+          className="w-full"
+        >
+          <div className="text-center mb-8">
+            <img
+              src={testimonials[activeTestimonial].image || "/placeholder.svg"}
+              alt={testimonials[activeTestimonial].name}
+              className="w-16 h-16 rounded-full mx-auto mb-4"
+            />
+            <div className="flex justify-center mb-4">
+              {[...Array(testimonials[activeTestimonial].rating)].map((_, i) => (
+                <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+              ))}
+            </div>
+            <blockquote className="text-lg text-gray-600 dark:text-gray-400 mb-6 max-w-5xl mx-auto">
+              "{testimonials[activeTestimonial].content}"
+            </blockquote>
+            <div>
+              <div className="font-semibold">{testimonials[activeTestimonial].name}</div>
+              <div className="text-sm text-gray-600 dark:text-gray-400">
+                {testimonials[activeTestimonial].role}
+                {testimonials[activeTestimonial].role && testimonials[activeTestimonial].company ? " at " : ""}
+                {testimonials[activeTestimonial].company}
+              </div>
+              {testimonials[activeTestimonial].country && (
+                <div className="text-xs text-gray-500 dark:text-gray-400 mt-1 flex items-center justify-center gap-1">
+                  <img
+                    src={testimonials[activeTestimonial].flag || "/placeholder.svg"}
+                    alt={testimonials[activeTestimonial].name}
+                    className="inline-block w-4 h-4 mr-1 rounded-sm"
+                    loading="lazy"
+                  />
+                  {testimonials[activeTestimonial].country}
+                </div>
+              )}
+            </div>
+            {testimonials[activeTestimonial].myResponse && (
+              <div className="mt-6 bg-blue-50 dark:bg-blue-900/30 rounded p-2 text-left max-w-2xl mx-auto border-l-4 border-blue-400">
+                <div className="text-sm text-gray-700 dark:text-gray-200">
+                  {testimonials[activeTestimonial].myResponse}
+                </div>
+              </div>
+            )}
           </div>
-        )} */}
-
-        {testimonials[activeTestimonial].country && (
-  <div className="text-xs text-gray-500 dark:text-gray-400 mt-1 flex items-center justify-center gap-1">
-    {/* Country flag for United States, add more as needed */}
-    {/* {testimonials[activeTestimonial].country === "United States" && (
-      <img
-        src={testimonials[activeTestimonial].flag || "/placeholder.svg"}
-        alt={testimonials[activeTestimonial].name}
-        className="inline-block w-4 h-4 mr-1 rounded-sm"
-        loading="lazy"
-      />
-    )} */}
-
-    <img
-        src={testimonials[activeTestimonial].flag || "/placeholder.svg"}
-        alt={testimonials[activeTestimonial].name}
-        className="inline-block w-4 h-4 mr-1 rounded-sm"
-        loading="lazy"
-      />
-    {testimonials[activeTestimonial].country}
-  </div>
-)}
-      </div>
-      {testimonials[activeTestimonial].myResponse && (
-        <div className="mt-6 bg-blue-50 dark:bg-blue-900/30 rounded p-2 text-left max-w-5xl mx-auto border-l-4 border-blue-400">
-          {/* <div className="font-semibold text-blue-700 dark:text-blue-300 mb-1">My Response</div> */}
-          <div className="text-sm text-gray-700 dark:text-gray-200">
-            {testimonials[activeTestimonial].myResponse}
-          </div>
-        </div>
-      )}
+        </motion.div>
+      </AnimatePresence>
     </div>
-
-    {/* Testimonial Dots */}
-    <div className="flex justify-center space-x-2">
+    {/* Dots only for navigation */}
+    <div className="flex justify-center space-x-2 mt-4">
       {testimonials.map((_, index) => (
         <button
           key={index}
